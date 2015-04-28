@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bd73cfc8cd0e42c391ead925d2c19fec" Name="Diagram1">
+        <EntityTypeShape EntityType="esterModel.BusinessSet" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="esterModel.CouponSet" Width="1.5" PointX="7.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="esterModel.CouponSet_SocailNetworkCoupon" Width="1.5" PointX="9.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="esterModel.LocationSet" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="esterModel.OrderedCouponSet" Width="1.5" PointX="9.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="esterModel.PersonSet" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="esterModel.PersonSet_Admin" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="esterModel.PersonSet_BusinessOwner" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="esterModel.PersonSet_Customer" Width="1.5" PointX="12.75" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="esterModel.FK_AdminBusiness" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.FK_BusinessCoupon" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.FK_BusinessOwnerBusiness" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.FK_CouponLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.FK_OrderedCouponCoupon" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.FK_SocailNetworkCoupon_inherits_Coupon" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.FK_AdminSocailNetworkCoupon" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.FK_CustomerLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.FK_CustomerOrderedCoupon" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.FK_Admin_inherits_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.FK_BusinessOwner_inherits_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.FK_Customer_inherits_Person" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.CustomerCoupon" ManuallyRouted="false" />
+        <AssociationConnector Association="esterModel.CustomerSocailNetworkCoupon" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

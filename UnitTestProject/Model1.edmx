@@ -1,0 +1,884 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="esterModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="esterModelStoreContainer">
+          <EntitySet Name="BusinessSet" EntityType="esterModel.Store.BusinessSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CouponSet" EntityType="esterModel.Store.CouponSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CouponSet_SocailNetworkCoupon" EntityType="esterModel.Store.CouponSet_SocailNetworkCoupon" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CustomerCoupon" EntityType="esterModel.Store.CustomerCoupon" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CustomerSocailNetworkCoupon" EntityType="esterModel.Store.CustomerSocailNetworkCoupon" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LocationSet" EntityType="esterModel.Store.LocationSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderedCouponSet" EntityType="esterModel.Store.OrderedCouponSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PersonSet" EntityType="esterModel.Store.PersonSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PersonSet_Admin" EntityType="esterModel.Store.PersonSet_Admin" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PersonSet_BusinessOwner" EntityType="esterModel.Store.PersonSet_BusinessOwner" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PersonSet_Customer" EntityType="esterModel.Store.PersonSet_Customer" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Admin_inherits_Person" Association="esterModel.Store.FK_Admin_inherits_Person">
+            <End Role="PersonSet" EntitySet="PersonSet" />
+            <End Role="PersonSet_Admin" EntitySet="PersonSet_Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdminBusiness" Association="esterModel.Store.FK_AdminBusiness">
+            <End Role="PersonSet_Admin" EntitySet="PersonSet_Admin" />
+            <End Role="BusinessSet" EntitySet="BusinessSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdminSocailNetworkCoupon" Association="esterModel.Store.FK_AdminSocailNetworkCoupon">
+            <End Role="PersonSet_Admin" EntitySet="PersonSet_Admin" />
+            <End Role="CouponSet_SocailNetworkCoupon" EntitySet="CouponSet_SocailNetworkCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessCoupon" Association="esterModel.Store.FK_BusinessCoupon">
+            <End Role="BusinessSet" EntitySet="BusinessSet" />
+            <End Role="CouponSet" EntitySet="CouponSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessOwner_inherits_Person" Association="esterModel.Store.FK_BusinessOwner_inherits_Person">
+            <End Role="PersonSet" EntitySet="PersonSet" />
+            <End Role="PersonSet_BusinessOwner" EntitySet="PersonSet_BusinessOwner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessOwnerBusiness" Association="esterModel.Store.FK_BusinessOwnerBusiness">
+            <End Role="PersonSet_BusinessOwner" EntitySet="PersonSet_BusinessOwner" />
+            <End Role="BusinessSet" EntitySet="BusinessSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CouponLocation" Association="esterModel.Store.FK_CouponLocation">
+            <End Role="LocationSet" EntitySet="LocationSet" />
+            <End Role="CouponSet" EntitySet="CouponSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_inherits_Person" Association="esterModel.Store.FK_Customer_inherits_Person">
+            <End Role="PersonSet" EntitySet="PersonSet" />
+            <End Role="PersonSet_Customer" EntitySet="PersonSet_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerCoupon_Coupon" Association="esterModel.Store.FK_CustomerCoupon_Coupon">
+            <End Role="CouponSet" EntitySet="CouponSet" />
+            <End Role="CustomerCoupon" EntitySet="CustomerCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerCoupon_Customer" Association="esterModel.Store.FK_CustomerCoupon_Customer">
+            <End Role="PersonSet_Customer" EntitySet="PersonSet_Customer" />
+            <End Role="CustomerCoupon" EntitySet="CustomerCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerLocation" Association="esterModel.Store.FK_CustomerLocation">
+            <End Role="LocationSet" EntitySet="LocationSet" />
+            <End Role="PersonSet_Customer" EntitySet="PersonSet_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerOrderedCoupon" Association="esterModel.Store.FK_CustomerOrderedCoupon">
+            <End Role="PersonSet_Customer" EntitySet="PersonSet_Customer" />
+            <End Role="OrderedCouponSet" EntitySet="OrderedCouponSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerSocailNetworkCoupon_Customer" Association="esterModel.Store.FK_CustomerSocailNetworkCoupon_Customer">
+            <End Role="PersonSet_Customer" EntitySet="PersonSet_Customer" />
+            <End Role="CustomerSocailNetworkCoupon" EntitySet="CustomerSocailNetworkCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerSocailNetworkCoupon_SocailNetworkCoupon" Association="esterModel.Store.FK_CustomerSocailNetworkCoupon_SocailNetworkCoupon">
+            <End Role="CouponSet_SocailNetworkCoupon" EntitySet="CouponSet_SocailNetworkCoupon" />
+            <End Role="CustomerSocailNetworkCoupon" EntitySet="CustomerSocailNetworkCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderedCouponCoupon" Association="esterModel.Store.FK_OrderedCouponCoupon">
+            <End Role="CouponSet" EntitySet="CouponSet" />
+            <End Role="OrderedCouponSet" EntitySet="OrderedCouponSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocailNetworkCoupon_inherits_Coupon" Association="esterModel.Store.FK_SocailNetworkCoupon_inherits_Coupon">
+            <End Role="CouponSet" EntitySet="CouponSet" />
+            <End Role="CouponSet_SocailNetworkCoupon" EntitySet="CouponSet_SocailNetworkCoupon" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BusinessSet">
+          <Key>
+            <PropertyRef Name="BusinessId" />
+          </Key>
+          <Property Name="BusinessId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="Address" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="Category" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="AdminId" Type="int" Nullable="false" />
+          <Property Name="BusinessOwnerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CouponSet">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="int" Nullable="false" />
+          <Property Name="OriginalPrice" Type="int" Nullable="false" />
+          <Property Name="DiscountPrice" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="CouponCode" Type="int" Nullable="false" />
+          <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+          <Property Name="AverageRank" Type="float" Nullable="false" />
+          <Property Name="BusinessBusinessId" Type="int" Nullable="false" />
+          <Property Name="CouponLocation_Coupon_x" Type="float" Nullable="false" />
+          <Property Name="CouponLocation_Coupon_y" Type="varchar" Nullable="false" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="CouponSet_SocailNetworkCoupon">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="SocialWebsite" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="AdminId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerCoupon">
+          <Key>
+            <PropertyRef Name="Likes_Id" />
+            <PropertyRef Name="CustomerCoupon_Customer_Name" />
+          </Key>
+          <Property Name="Likes_Id" Type="int" Nullable="false" />
+          <Property Name="CustomerCoupon_Customer_Name" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerSocailNetworkCoupon">
+          <Key>
+            <PropertyRef Name="adds_Id" />
+            <PropertyRef Name="addedBy_Name" />
+          </Key>
+          <Property Name="adds_Id" Type="int" Nullable="false" />
+          <Property Name="addedBy_Name" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LocationSet">
+          <Key>
+            <PropertyRef Name="x" />
+            <PropertyRef Name="y" />
+          </Key>
+          <Property Name="x" Type="float" Nullable="false" />
+          <Property Name="y" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="Address" Type="varchar" Nullable="false" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="OrderedCouponSet">
+          <Key>
+            <PropertyRef Name="CouponId" />
+          </Key>
+          <Property Name="CouponId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Used" Type="bit" Nullable="false" />
+          <Property Name="Rank" Type="int" Nullable="false" />
+          <Property Name="Orders_Id" Type="int" Nullable="false" />
+          <Property Name="OrderedCouponCoupon_OrderedCoupon_Name" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="Phone" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="Age" Type="varchar" Nullable="false" MaxLength="400" />
+          <Property Name="Sex" Type="varchar" Nullable="false" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="PersonSet_Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonSet_BusinessOwner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PersonSet_Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CustomerLocation_Customer_x" Type="float" Nullable="false" />
+          <Property Name="CustomerLocation_Customer_y" Type="varchar" Nullable="false" MaxLength="400" />
+        </EntityType>
+        <Association Name="FK_Admin_inherits_Person">
+          <End Role="PersonSet" Type="esterModel.Store.PersonSet" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonSet_Admin" Type="esterModel.Store.PersonSet_Admin" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonSet_Admin">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdminBusiness">
+          <End Role="PersonSet_Admin" Type="esterModel.Store.PersonSet_Admin" Multiplicity="1" />
+          <End Role="BusinessSet" Type="esterModel.Store.BusinessSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet_Admin">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusinessSet">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdminSocailNetworkCoupon">
+          <End Role="PersonSet_Admin" Type="esterModel.Store.PersonSet_Admin" Multiplicity="1" />
+          <End Role="CouponSet_SocailNetworkCoupon" Type="esterModel.Store.CouponSet_SocailNetworkCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet_Admin">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CouponSet_SocailNetworkCoupon">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessCoupon">
+          <End Role="BusinessSet" Type="esterModel.Store.BusinessSet" Multiplicity="1" />
+          <End Role="CouponSet" Type="esterModel.Store.CouponSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessSet">
+              <PropertyRef Name="BusinessId" />
+            </Principal>
+            <Dependent Role="CouponSet">
+              <PropertyRef Name="BusinessBusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessOwner_inherits_Person">
+          <End Role="PersonSet" Type="esterModel.Store.PersonSet" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonSet_BusinessOwner" Type="esterModel.Store.PersonSet_BusinessOwner" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonSet_BusinessOwner">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessOwnerBusiness">
+          <End Role="PersonSet_BusinessOwner" Type="esterModel.Store.PersonSet_BusinessOwner" Multiplicity="1" />
+          <End Role="BusinessSet" Type="esterModel.Store.BusinessSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet_BusinessOwner">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusinessSet">
+              <PropertyRef Name="BusinessOwnerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CouponLocation">
+          <End Role="LocationSet" Type="esterModel.Store.LocationSet" Multiplicity="1" />
+          <End Role="CouponSet" Type="esterModel.Store.CouponSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationSet">
+              <PropertyRef Name="x" />
+              <PropertyRef Name="y" />
+            </Principal>
+            <Dependent Role="CouponSet">
+              <PropertyRef Name="CouponLocation_Coupon_x" />
+              <PropertyRef Name="CouponLocation_Coupon_y" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_inherits_Person">
+          <End Role="PersonSet" Type="esterModel.Store.PersonSet" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonSet_Customer" Type="esterModel.Store.PersonSet_Customer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonSet_Customer">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerCoupon_Coupon">
+          <End Role="CouponSet" Type="esterModel.Store.CouponSet" Multiplicity="1" />
+          <End Role="CustomerCoupon" Type="esterModel.Store.CustomerCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CouponSet">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="CustomerCoupon">
+              <PropertyRef Name="CustomerCoupon_Customer_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerCoupon_Customer">
+          <End Role="PersonSet_Customer" Type="esterModel.Store.PersonSet_Customer" Multiplicity="1" />
+          <End Role="CustomerCoupon" Type="esterModel.Store.CustomerCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet_Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerCoupon">
+              <PropertyRef Name="Likes_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerLocation">
+          <End Role="LocationSet" Type="esterModel.Store.LocationSet" Multiplicity="1" />
+          <End Role="PersonSet_Customer" Type="esterModel.Store.PersonSet_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationSet">
+              <PropertyRef Name="x" />
+              <PropertyRef Name="y" />
+            </Principal>
+            <Dependent Role="PersonSet_Customer">
+              <PropertyRef Name="CustomerLocation_Customer_x" />
+              <PropertyRef Name="CustomerLocation_Customer_y" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerOrderedCoupon">
+          <End Role="PersonSet_Customer" Type="esterModel.Store.PersonSet_Customer" Multiplicity="1" />
+          <End Role="OrderedCouponSet" Type="esterModel.Store.OrderedCouponSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet_Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderedCouponSet">
+              <PropertyRef Name="Orders_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerSocailNetworkCoupon_Customer">
+          <End Role="PersonSet_Customer" Type="esterModel.Store.PersonSet_Customer" Multiplicity="1" />
+          <End Role="CustomerSocailNetworkCoupon" Type="esterModel.Store.CustomerSocailNetworkCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet_Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustomerSocailNetworkCoupon">
+              <PropertyRef Name="adds_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerSocailNetworkCoupon_SocailNetworkCoupon">
+          <End Role="CouponSet_SocailNetworkCoupon" Type="esterModel.Store.CouponSet_SocailNetworkCoupon" Multiplicity="1" />
+          <End Role="CustomerSocailNetworkCoupon" Type="esterModel.Store.CustomerSocailNetworkCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CouponSet_SocailNetworkCoupon">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="CustomerSocailNetworkCoupon">
+              <PropertyRef Name="addedBy_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderedCouponCoupon">
+          <End Role="CouponSet" Type="esterModel.Store.CouponSet" Multiplicity="1" />
+          <End Role="OrderedCouponSet" Type="esterModel.Store.OrderedCouponSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CouponSet">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="OrderedCouponSet">
+              <PropertyRef Name="OrderedCouponCoupon_OrderedCoupon_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocailNetworkCoupon_inherits_Coupon">
+          <End Role="CouponSet" Type="esterModel.Store.CouponSet" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CouponSet_SocailNetworkCoupon" Type="esterModel.Store.CouponSet_SocailNetworkCoupon" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CouponSet">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="CouponSet_SocailNetworkCoupon">
+              <PropertyRef Name="Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="esterModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="esterEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="BusinessSet" EntityType="esterModel.BusinessSet" />
+          <EntitySet Name="CouponSet" EntityType="esterModel.CouponSet" />
+          <EntitySet Name="CouponSet_SocailNetworkCoupon" EntityType="esterModel.CouponSet_SocailNetworkCoupon" />
+          <EntitySet Name="LocationSet" EntityType="esterModel.LocationSet" />
+          <EntitySet Name="OrderedCouponSet" EntityType="esterModel.OrderedCouponSet" />
+          <EntitySet Name="PersonSet" EntityType="esterModel.PersonSet" />
+          <EntitySet Name="PersonSet_Admin" EntityType="esterModel.PersonSet_Admin" />
+          <EntitySet Name="PersonSet_BusinessOwner" EntityType="esterModel.PersonSet_BusinessOwner" />
+          <EntitySet Name="PersonSet_Customer" EntityType="esterModel.PersonSet_Customer" />
+          <AssociationSet Name="FK_AdminBusiness" Association="esterModel.FK_AdminBusiness">
+            <End Role="PersonSet_Admin" EntitySet="PersonSet_Admin" />
+            <End Role="BusinessSet" EntitySet="BusinessSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessCoupon" Association="esterModel.FK_BusinessCoupon">
+            <End Role="BusinessSet" EntitySet="BusinessSet" />
+            <End Role="CouponSet" EntitySet="CouponSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessOwnerBusiness" Association="esterModel.FK_BusinessOwnerBusiness">
+            <End Role="PersonSet_BusinessOwner" EntitySet="PersonSet_BusinessOwner" />
+            <End Role="BusinessSet" EntitySet="BusinessSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CouponLocation" Association="esterModel.FK_CouponLocation">
+            <End Role="LocationSet" EntitySet="LocationSet" />
+            <End Role="CouponSet" EntitySet="CouponSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderedCouponCoupon" Association="esterModel.FK_OrderedCouponCoupon">
+            <End Role="CouponSet" EntitySet="CouponSet" />
+            <End Role="OrderedCouponSet" EntitySet="OrderedCouponSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SocailNetworkCoupon_inherits_Coupon" Association="esterModel.FK_SocailNetworkCoupon_inherits_Coupon">
+            <End Role="CouponSet" EntitySet="CouponSet" />
+            <End Role="CouponSet_SocailNetworkCoupon" EntitySet="CouponSet_SocailNetworkCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AdminSocailNetworkCoupon" Association="esterModel.FK_AdminSocailNetworkCoupon">
+            <End Role="PersonSet_Admin" EntitySet="PersonSet_Admin" />
+            <End Role="CouponSet_SocailNetworkCoupon" EntitySet="CouponSet_SocailNetworkCoupon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerLocation" Association="esterModel.FK_CustomerLocation">
+            <End Role="LocationSet" EntitySet="LocationSet" />
+            <End Role="PersonSet_Customer" EntitySet="PersonSet_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustomerOrderedCoupon" Association="esterModel.FK_CustomerOrderedCoupon">
+            <End Role="PersonSet_Customer" EntitySet="PersonSet_Customer" />
+            <End Role="OrderedCouponSet" EntitySet="OrderedCouponSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Admin_inherits_Person" Association="esterModel.FK_Admin_inherits_Person">
+            <End Role="PersonSet" EntitySet="PersonSet" />
+            <End Role="PersonSet_Admin" EntitySet="PersonSet_Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessOwner_inherits_Person" Association="esterModel.FK_BusinessOwner_inherits_Person">
+            <End Role="PersonSet" EntitySet="PersonSet" />
+            <End Role="PersonSet_BusinessOwner" EntitySet="PersonSet_BusinessOwner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_inherits_Person" Association="esterModel.FK_Customer_inherits_Person">
+            <End Role="PersonSet" EntitySet="PersonSet" />
+            <End Role="PersonSet_Customer" EntitySet="PersonSet_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerCoupon" Association="esterModel.CustomerCoupon">
+            <End Role="CouponSet" EntitySet="CouponSet" />
+            <End Role="PersonSet_Customer" EntitySet="PersonSet_Customer" />
+          </AssociationSet>
+          <AssociationSet Name="CustomerSocailNetworkCoupon" Association="esterModel.CustomerSocailNetworkCoupon">
+            <End Role="PersonSet_Customer" EntitySet="PersonSet_Customer" />
+            <End Role="CouponSet_SocailNetworkCoupon" EntitySet="CouponSet_SocailNetworkCoupon" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BusinessSet">
+          <Key>
+            <PropertyRef Name="BusinessId" />
+          </Key>
+          <Property Name="BusinessId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="Category" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="AdminId" Type="Int32" Nullable="false" />
+          <Property Name="BusinessOwnerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PersonSet_Admin" Relationship="esterModel.FK_AdminBusiness" FromRole="BusinessSet" ToRole="PersonSet_Admin" />
+          <NavigationProperty Name="CouponSet" Relationship="esterModel.FK_BusinessCoupon" FromRole="BusinessSet" ToRole="CouponSet" />
+          <NavigationProperty Name="PersonSet_BusinessOwner" Relationship="esterModel.FK_BusinessOwnerBusiness" FromRole="BusinessSet" ToRole="PersonSet_BusinessOwner" />
+        </EntityType>
+        <EntityType Name="CouponSet">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Category" Type="Int32" Nullable="false" />
+          <Property Name="OriginalPrice" Type="Int32" Nullable="false" />
+          <Property Name="DiscountPrice" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="CouponCode" Type="Int32" Nullable="false" />
+          <Property Name="ExpirationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AverageRank" Type="Double" Nullable="false" />
+          <Property Name="BusinessBusinessId" Type="Int32" Nullable="false" />
+          <Property Name="CouponLocation_Coupon_x" Type="Double" Nullable="false" />
+          <Property Name="CouponLocation_Coupon_y" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="BusinessSet" Relationship="esterModel.FK_BusinessCoupon" FromRole="CouponSet" ToRole="BusinessSet" />
+          <NavigationProperty Name="LocationSet" Relationship="esterModel.FK_CouponLocation" FromRole="CouponSet" ToRole="LocationSet" />
+          <NavigationProperty Name="OrderedCouponSet" Relationship="esterModel.FK_OrderedCouponCoupon" FromRole="CouponSet" ToRole="OrderedCouponSet" />
+          <NavigationProperty Name="CouponSet_SocailNetworkCoupon" Relationship="esterModel.FK_SocailNetworkCoupon_inherits_Coupon" FromRole="CouponSet" ToRole="CouponSet_SocailNetworkCoupon" />
+          <NavigationProperty Name="PersonSet_Customer" Relationship="esterModel.CustomerCoupon" FromRole="CouponSet" ToRole="PersonSet_Customer" />
+        </EntityType>
+        <EntityType Name="CouponSet_SocailNetworkCoupon">
+          <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="SocialWebsite" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="AdminId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CouponSet" Relationship="esterModel.FK_SocailNetworkCoupon_inherits_Coupon" FromRole="CouponSet_SocailNetworkCoupon" ToRole="CouponSet" />
+          <NavigationProperty Name="PersonSet_Admin" Relationship="esterModel.FK_AdminSocailNetworkCoupon" FromRole="CouponSet_SocailNetworkCoupon" ToRole="PersonSet_Admin" />
+          <NavigationProperty Name="PersonSet_Customer" Relationship="esterModel.CustomerSocailNetworkCoupon" FromRole="CouponSet_SocailNetworkCoupon" ToRole="PersonSet_Customer" />
+        </EntityType>
+        <EntityType Name="LocationSet">
+          <Key>
+            <PropertyRef Name="x" />
+            <PropertyRef Name="y" />
+          </Key>
+          <Property Name="x" Type="Double" Nullable="false" />
+          <Property Name="y" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CouponSet" Relationship="esterModel.FK_CouponLocation" FromRole="LocationSet" ToRole="CouponSet" />
+          <NavigationProperty Name="PersonSet_Customer" Relationship="esterModel.FK_CustomerLocation" FromRole="LocationSet" ToRole="PersonSet_Customer" />
+        </EntityType>
+        <EntityType Name="OrderedCouponSet">
+          <Key>
+            <PropertyRef Name="CouponId" />
+          </Key>
+          <Property Name="CouponId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Used" Type="Boolean" Nullable="false" />
+          <Property Name="Rank" Type="Int32" Nullable="false" />
+          <Property Name="Orders_Id" Type="Int32" Nullable="false" />
+          <Property Name="OrderedCouponCoupon_OrderedCoupon_Name" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CouponSet" Relationship="esterModel.FK_OrderedCouponCoupon" FromRole="OrderedCouponSet" ToRole="CouponSet" />
+          <NavigationProperty Name="PersonSet_Customer" Relationship="esterModel.FK_CustomerOrderedCoupon" FromRole="OrderedCouponSet" ToRole="PersonSet_Customer" />
+        </EntityType>
+        <EntityType Name="PersonSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="Age" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="Sex" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PersonSet_Admin" Relationship="esterModel.FK_Admin_inherits_Person" FromRole="PersonSet" ToRole="PersonSet_Admin" />
+          <NavigationProperty Name="PersonSet_BusinessOwner" Relationship="esterModel.FK_BusinessOwner_inherits_Person" FromRole="PersonSet" ToRole="PersonSet_BusinessOwner" />
+          <NavigationProperty Name="PersonSet_Customer" Relationship="esterModel.FK_Customer_inherits_Person" FromRole="PersonSet" ToRole="PersonSet_Customer" />
+        </EntityType>
+        <EntityType Name="PersonSet_Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BusinessSet" Relationship="esterModel.FK_AdminBusiness" FromRole="PersonSet_Admin" ToRole="BusinessSet" />
+          <NavigationProperty Name="CouponSet_SocailNetworkCoupon" Relationship="esterModel.FK_AdminSocailNetworkCoupon" FromRole="PersonSet_Admin" ToRole="CouponSet_SocailNetworkCoupon" />
+          <NavigationProperty Name="PersonSet" Relationship="esterModel.FK_Admin_inherits_Person" FromRole="PersonSet_Admin" ToRole="PersonSet" />
+        </EntityType>
+        <EntityType Name="PersonSet_BusinessOwner">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BusinessSet" Relationship="esterModel.FK_BusinessOwnerBusiness" FromRole="PersonSet_BusinessOwner" ToRole="BusinessSet" />
+          <NavigationProperty Name="PersonSet" Relationship="esterModel.FK_BusinessOwner_inherits_Person" FromRole="PersonSet_BusinessOwner" ToRole="PersonSet" />
+        </EntityType>
+        <EntityType Name="PersonSet_Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CustomerLocation_Customer_x" Type="Double" Nullable="false" />
+          <Property Name="CustomerLocation_Customer_y" Type="String" Nullable="false" MaxLength="400" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="LocationSet" Relationship="esterModel.FK_CustomerLocation" FromRole="PersonSet_Customer" ToRole="LocationSet" />
+          <NavigationProperty Name="OrderedCouponSet" Relationship="esterModel.FK_CustomerOrderedCoupon" FromRole="PersonSet_Customer" ToRole="OrderedCouponSet" />
+          <NavigationProperty Name="PersonSet" Relationship="esterModel.FK_Customer_inherits_Person" FromRole="PersonSet_Customer" ToRole="PersonSet" />
+          <NavigationProperty Name="CouponSet" Relationship="esterModel.CustomerCoupon" FromRole="PersonSet_Customer" ToRole="CouponSet" />
+          <NavigationProperty Name="CouponSet_SocailNetworkCoupon" Relationship="esterModel.CustomerSocailNetworkCoupon" FromRole="PersonSet_Customer" ToRole="CouponSet_SocailNetworkCoupon" />
+        </EntityType>
+        <Association Name="FK_AdminBusiness">
+          <End Role="PersonSet_Admin" Type="esterModel.PersonSet_Admin" Multiplicity="1" />
+          <End Role="BusinessSet" Type="esterModel.BusinessSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet_Admin">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusinessSet">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessCoupon">
+          <End Role="BusinessSet" Type="esterModel.BusinessSet" Multiplicity="1" />
+          <End Role="CouponSet" Type="esterModel.CouponSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessSet">
+              <PropertyRef Name="BusinessId" />
+            </Principal>
+            <Dependent Role="CouponSet">
+              <PropertyRef Name="BusinessBusinessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessOwnerBusiness">
+          <End Role="PersonSet_BusinessOwner" Type="esterModel.PersonSet_BusinessOwner" Multiplicity="1" />
+          <End Role="BusinessSet" Type="esterModel.BusinessSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet_BusinessOwner">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusinessSet">
+              <PropertyRef Name="BusinessOwnerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CouponLocation">
+          <End Role="LocationSet" Type="esterModel.LocationSet" Multiplicity="1" />
+          <End Role="CouponSet" Type="esterModel.CouponSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationSet">
+              <PropertyRef Name="x" />
+              <PropertyRef Name="y" />
+            </Principal>
+            <Dependent Role="CouponSet">
+              <PropertyRef Name="CouponLocation_Coupon_x" />
+              <PropertyRef Name="CouponLocation_Coupon_y" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderedCouponCoupon">
+          <End Role="CouponSet" Type="esterModel.CouponSet" Multiplicity="1" />
+          <End Role="OrderedCouponSet" Type="esterModel.OrderedCouponSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CouponSet">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="OrderedCouponSet">
+              <PropertyRef Name="OrderedCouponCoupon_OrderedCoupon_Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SocailNetworkCoupon_inherits_Coupon">
+          <End Role="CouponSet" Type="esterModel.CouponSet" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CouponSet_SocailNetworkCoupon" Type="esterModel.CouponSet_SocailNetworkCoupon" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="CouponSet">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="CouponSet_SocailNetworkCoupon">
+              <PropertyRef Name="Name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AdminSocailNetworkCoupon">
+          <End Role="PersonSet_Admin" Type="esterModel.PersonSet_Admin" Multiplicity="1" />
+          <End Role="CouponSet_SocailNetworkCoupon" Type="esterModel.CouponSet_SocailNetworkCoupon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet_Admin">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CouponSet_SocailNetworkCoupon">
+              <PropertyRef Name="AdminId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerLocation">
+          <End Role="LocationSet" Type="esterModel.LocationSet" Multiplicity="1" />
+          <End Role="PersonSet_Customer" Type="esterModel.PersonSet_Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LocationSet">
+              <PropertyRef Name="x" />
+              <PropertyRef Name="y" />
+            </Principal>
+            <Dependent Role="PersonSet_Customer">
+              <PropertyRef Name="CustomerLocation_Customer_x" />
+              <PropertyRef Name="CustomerLocation_Customer_y" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustomerOrderedCoupon">
+          <End Role="PersonSet_Customer" Type="esterModel.PersonSet_Customer" Multiplicity="1" />
+          <End Role="OrderedCouponSet" Type="esterModel.OrderedCouponSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet_Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="OrderedCouponSet">
+              <PropertyRef Name="Orders_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Admin_inherits_Person">
+          <End Role="PersonSet" Type="esterModel.PersonSet" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonSet_Admin" Type="esterModel.PersonSet_Admin" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonSet_Admin">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessOwner_inherits_Person">
+          <End Role="PersonSet" Type="esterModel.PersonSet" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonSet_BusinessOwner" Type="esterModel.PersonSet_BusinessOwner" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonSet_BusinessOwner">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_inherits_Person">
+          <End Role="PersonSet" Type="esterModel.PersonSet" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PersonSet_Customer" Type="esterModel.PersonSet_Customer" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PersonSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PersonSet_Customer">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CustomerCoupon">
+          <End Role="CouponSet" Type="esterModel.CouponSet" Multiplicity="*" />
+          <End Role="PersonSet_Customer" Type="esterModel.PersonSet_Customer" Multiplicity="*" />
+        </Association>
+        <Association Name="CustomerSocailNetworkCoupon">
+          <End Role="PersonSet_Customer" Type="esterModel.PersonSet_Customer" Multiplicity="*" />
+          <End Role="CouponSet_SocailNetworkCoupon" Type="esterModel.CouponSet_SocailNetworkCoupon" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="esterModelStoreContainer" CdmEntityContainer="esterEntities">
+          <EntitySetMapping Name="BusinessSet">
+            <EntityTypeMapping TypeName="esterModel.BusinessSet">
+              <MappingFragment StoreEntitySet="BusinessSet">
+                <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="BusinessOwnerId" ColumnName="BusinessOwnerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CouponSet">
+            <EntityTypeMapping TypeName="esterModel.CouponSet">
+              <MappingFragment StoreEntitySet="CouponSet">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="OriginalPrice" ColumnName="OriginalPrice" />
+                <ScalarProperty Name="DiscountPrice" ColumnName="DiscountPrice" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CouponCode" ColumnName="CouponCode" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="AverageRank" ColumnName="AverageRank" />
+                <ScalarProperty Name="BusinessBusinessId" ColumnName="BusinessBusinessId" />
+                <ScalarProperty Name="CouponLocation_Coupon_x" ColumnName="CouponLocation_Coupon_x" />
+                <ScalarProperty Name="CouponLocation_Coupon_y" ColumnName="CouponLocation_Coupon_y" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CouponSet_SocailNetworkCoupon">
+            <EntityTypeMapping TypeName="esterModel.CouponSet_SocailNetworkCoupon">
+              <MappingFragment StoreEntitySet="CouponSet_SocailNetworkCoupon">
+                <ScalarProperty Name="SocialWebsite" ColumnName="SocialWebsite" />
+                <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LocationSet">
+            <EntityTypeMapping TypeName="esterModel.LocationSet">
+              <MappingFragment StoreEntitySet="LocationSet">
+                <ScalarProperty Name="x" ColumnName="x" />
+                <ScalarProperty Name="y" ColumnName="y" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderedCouponSet">
+            <EntityTypeMapping TypeName="esterModel.OrderedCouponSet">
+              <MappingFragment StoreEntitySet="OrderedCouponSet">
+                <ScalarProperty Name="CouponId" ColumnName="CouponId" />
+                <ScalarProperty Name="Used" ColumnName="Used" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Orders_Id" ColumnName="Orders_Id" />
+                <ScalarProperty Name="OrderedCouponCoupon_OrderedCoupon_Name" ColumnName="OrderedCouponCoupon_OrderedCoupon_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonSet">
+            <EntityTypeMapping TypeName="esterModel.PersonSet">
+              <MappingFragment StoreEntitySet="PersonSet">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonSet_Admin">
+            <EntityTypeMapping TypeName="esterModel.PersonSet_Admin">
+              <MappingFragment StoreEntitySet="PersonSet_Admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonSet_BusinessOwner">
+            <EntityTypeMapping TypeName="esterModel.PersonSet_BusinessOwner">
+              <MappingFragment StoreEntitySet="PersonSet_BusinessOwner">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PersonSet_Customer">
+            <EntityTypeMapping TypeName="esterModel.PersonSet_Customer">
+              <MappingFragment StoreEntitySet="PersonSet_Customer">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerLocation_Customer_x" ColumnName="CustomerLocation_Customer_x" />
+                <ScalarProperty Name="CustomerLocation_Customer_y" ColumnName="CustomerLocation_Customer_y" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CustomerCoupon" TypeName="esterModel.CustomerCoupon" StoreEntitySet="CustomerCoupon">
+            <EndProperty Name="CouponSet">
+              <ScalarProperty Name="Name" ColumnName="CustomerCoupon_Customer_Name" />
+            </EndProperty>
+            <EndProperty Name="PersonSet_Customer">
+              <ScalarProperty Name="Id" ColumnName="Likes_Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CustomerSocailNetworkCoupon" TypeName="esterModel.CustomerSocailNetworkCoupon" StoreEntitySet="CustomerSocailNetworkCoupon">
+            <EndProperty Name="PersonSet_Customer">
+              <ScalarProperty Name="Id" ColumnName="adds_Id" />
+            </EndProperty>
+            <EndProperty Name="CouponSet_SocailNetworkCoupon">
+              <ScalarProperty Name="Name" ColumnName="addedBy_Name" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
